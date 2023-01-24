@@ -1,8 +1,25 @@
 ---
-hosts: ansible
-become: True
+- hosts: all
 tasks:
- - name: Install packages
-yum:
-name: httpd
-state: latest
+- name: checking the file's existance before creation
+shell: "ls -l /tmp/sample*"
+register: var_output
+ignore_errors: yes
+- name: here print the output
+debug:
+var: var_output.stdout_lines
+- name: create file with different user ownership and permission
+file:
+path: "/tmp/{{ item.name }}"
+state: touch
+owner: "{{ item.username }}"
+mode: "{{ item.permission }}"
+with_items:
+- { name: sample1, username: testuser, permission: '0644' }
+- { name: sample2, username: test_user, permission: '0755' }
+- name: checking the file's existance after creation
+shell: "ls -l /tmp/sample*"
+register: var_output_1
+- name: here print the output
+debug:
+var: var_output_1.stdout_lines
