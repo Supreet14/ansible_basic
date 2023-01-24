@@ -7,4 +7,3 @@ ansiblePlaybook credentialsId: '43.207.48.0', disableHostKeyChecking: true, inst
  }
 }
 }
-}
