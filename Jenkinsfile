@@ -1,8 +1,9 @@
 pipeline {
-    agent any stages {
+    agent any 
+  stages {
         stage(' Ansible Execution') {
             steps {
-              ansiblePlaybook credentialsId: 'ansible', disableHostKeyChecking: true, installation: 'ansible', inventory: 'ansible.inv', playbook: 'ansible.yml' 
+              ansiblePlaybook credentialsId: '43.207.48.0', disableHostKeyChecking: true, installation: 'ansible', inventory: 'ansible.inv', playbook: 'ansible.yml' 
             }
         }
     }
