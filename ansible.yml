@@ -8,7 +8,7 @@
       file: dest=/home/testserver/test1.txt state=touch
     - name: copy file
       copy: 
-        src: /home/ec2-user/text.txt 
+        src: /home/ec2-user/test.txt 
         dest: /home/testserver/test1.txt
         remote: yes
     - name: debug
