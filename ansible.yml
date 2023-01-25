@@ -24,7 +24,7 @@
     - name: Docker
       service: 
         name: docker
-        state: stop
+        state: stoped
     - name: git
       command: git --version
     - name: cli
