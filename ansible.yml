@@ -1,4 +1,5 @@
  hosts: all
+ become: true
   tasks:
   - name: copy file
     copy: src=/etc/ansible/hosts dest=/etc/ansible/hosts
