@@ -26,7 +26,7 @@
         name: docker
         state: stopped
     - name: set git config
-      git:
+      git_config:
         repo: "https://github.com/Supreet14/github_basics.git"
         dest: "/home/ec2-user"
         user: "supreet14"
