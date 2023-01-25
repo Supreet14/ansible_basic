@@ -1,6 +1,6 @@
  hosts: all
  become: true
-  tasks:
+ tasks:
   - name: copy file
     copy: src=/etc/ansible/hosts dest=/etc/ansible/hosts
     owner=root group=root mode=0644
