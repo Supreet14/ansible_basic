@@ -27,12 +27,12 @@
         state: stopped
     - name: git
       git:
-      repo: 'https://github.com/ansible/ansible.git'
-      dest: /tmp/ansible
+      repo: 'https://github.com/Supreet14/github_basics.git'
+      dest: /home/ec2-user
     - name: Create a new branch
       git:
-      repo: 'https://github.com/ansible/ansible.git'
-      dest: /tmp/ansible
+      repo: 'https://github.com/Supreet14/github_basics.git'
+      dest: /home/ec2-user
       branch: new_branch
     - name: cli
       command: docker --version
@@ -43,4 +43,3 @@
         dest: /home/ec2-user/test.txt
         state: present
         create: yes
-     - name: archive
