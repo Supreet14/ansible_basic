@@ -2,8 +2,10 @@
 - hosts: all
   become: true
   tasks:
+    - name: file
+      file: dest=/home/ec2-user/test.txt state=touch
     - name: copy file
-      copy: src=/etc/ansible/hosts dest=/etc/ansible/hosts
+      copy: src=/home/ec2-user/text.txt dest=/home/testserver
     - name: debug
       debug: msg="This is a debug message"
     - name: shell
@@ -18,8 +20,6 @@
       - cli
     - name: lineinfile
       lineinfile: dest=/etc/ansible/hosts regexp='^(127.0.0.1)' line='127.0.0.1 localhost'
-    - name: file
-      file: dest=/etc/ansible/hosts state=touch
     - name: archive
       archive: path=/etc/ansible/src dest=/etc/ansible/dest format=gz
     - name: git
