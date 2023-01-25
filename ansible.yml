@@ -3,7 +3,7 @@
   become: true
   tasks:
     - name: file
-      file: dest=/home/ec2-user/test.txt state=touch state=touch
+      file: dest=/home/ec2-user/test.txt state=touch
     - name: file
       file: dest=/home/testserver/test1.txt state=touch
     - name: copy file
@@ -33,5 +33,3 @@
         line: Hello world
         dest: /home/ec2-user/hlo.txt
         state: present
-        create: yes
-     
