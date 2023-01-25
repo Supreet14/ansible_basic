@@ -31,7 +31,8 @@
       command: docker --version
       
     - name: Lineinfile
-      line: Hello World
-      des: /home/ec2-user/test.txt
-      state: present
-      create: yes
+      lineinfile:
+        line: Hello World
+        dest: /home/ec2-user/test.txt
+        state: present
+        create: yes
