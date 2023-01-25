@@ -20,14 +20,3 @@
       with_items:
       - ntp
       - git
-    - name: Start and Enable Docker Service
-      service:
-      name: docker
-      state: started
-      enabled: true
-    - name: archive
-      archive: path=/etc/ansible/src dest=/etc/ansible/dest format=gz
-    - name: git
-      git: repo=https://github.com/ansible/ansible.git dest=/etc/ansible/checkouts/ansible version=release2.1.1.0
-    - name: cli
-      command: ansible --version
