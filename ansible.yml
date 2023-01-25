@@ -1,7 +1,7 @@
- ---
- - hosts: all
-   become: true
-   tasks:
+---
+- hosts: all
+  become: true
+  tasks:
     - name: copy file
       copy: src=/etc/ansible/hosts dest=/etc/ansible/hosts
     - name: debug
@@ -12,10 +12,10 @@
       template: src=/etc/ansible/templates/hosts.j2 dest=/etc/ansible/hosts
     - name: yum
       yum: name={{item}} state=present
-    with_items:
-    - ntp
-    - git
-    - cli
+      with_items:
+      - ntp
+      - git
+      - cli
     - name: lineinfile
       lineinfile: dest=/etc/ansible/hosts regexp='^(127.0.0.1)' line='127.0.0.1 localhost'
     - name: file
