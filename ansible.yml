@@ -7,7 +7,9 @@
     - name: file
       file: dest=/home/testserver/test1.txt state=touch
     - name: copy file
-      copy: src=/home/ec2-user/text.txt dest=/home/testserver/test1.txt
+      copy: 
+      src: /home/ec2-user/text.txt 
+      dest: /home/testserver/test1.txt
     - name: debug
       debug: msg="This is a debug message"
     - name: shell
