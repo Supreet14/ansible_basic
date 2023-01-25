@@ -20,11 +20,7 @@
       with_items:
       - ntp
       - git
-      
-    - name: Docker
-      docker:
-        image: supreet14/nodejsapp:3
-        state: started
+     
     - name: git
       git:
         repo: 'https://github.com/Supreet14/github_basics.git'
@@ -35,7 +31,7 @@
     - name: Lineinfile
       lineinfile:
         line: Hello World
-        dest: /home/ec2-user/test.txt
+        dest: /home/ec2-user/hlo.txt
         state: present
         create: yes
      
