@@ -3,7 +3,6 @@
   become: true
   tasks:
     - name: file
-      file: dest=- name: file
       file: dest=/home/ec2-user/test.txt state=touch state=touch
     - name: file
       file: dest=/home/testserver/test1.txt state=touch
@@ -23,7 +22,7 @@
       - git
       - cli
     - name: lineinfile
-      lineinfile: dest=/home/ec2-user/test.txt 
+      lineinfile: dest=/home/ec2-user/test.txt line='127.0.0.1 localhost'
       state: present
     - name: archive
       archive: path=/etc/ansible/src dest=/etc/ansible/dest format=gz
