@@ -25,6 +25,7 @@
       service: 
         name: docker
         state: start
+        
     - name: git
       debug:
       command: git --version
