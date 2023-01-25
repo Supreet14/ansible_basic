@@ -20,12 +20,11 @@
       with_items:
       - ntp
       - git
-    - name: Lineinfile
-      lineinfile: 
-      dest: /home/ec2-user/test.txt
-      line: Inserting a line in a file.
-      state: present
-      create: yes
+    - name: Start and Enable Docker Service
+      service:
+      name: docker
+      state: started
+      enabled: true
     - name: archive
       archive: path=/etc/ansible/src dest=/etc/ansible/dest format=gz
     - name: git
