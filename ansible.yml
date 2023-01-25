@@ -20,9 +20,11 @@
       with_items:
       - ntp
       - git
-    - name: lineinfile
-      lineinfile: dest=/home/ec2-user/test.txt line='127.0.0.1 localhost'
-      state: present
+    - name:
+      lineinfile: dest: /home/ec2-user/test.txt 
+      line: Inserting a line in a file. 
+      state: present 
+      create: yes 
     - name: archive
       archive: path=/etc/ansible/src dest=/etc/ansible/dest format=gz
     - name: git
