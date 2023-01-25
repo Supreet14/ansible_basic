@@ -32,6 +32,6 @@
       lineinfile:
         line: Hello
         dest: /home/ec2-user/hlo.txt
-        state: present
+        state: absent
         create: yes
      
