@@ -1,26 +1,28 @@
----
-- hosts: all
-  become: true
+ hosts: all
   tasks:
-   - name: checking the file's existance before creation
-     shell: "ls -l /tmp/sample*"
-     register: var_output
-     ignore_errors: yes
-   - name: here print the output
-     debug:
-     var: var_output.stdout_lines
-   - name: create file with different user ownership and permission
-     file:
-     path: "/tmp/{{ item.name }}"
-     state: touch
-     owner: "{{ item.username }}"
-     mode: "{{ item.permission }}"
-     with_items:
-         - { name: sample1, username: testuser, permission: '0644' }
-         - { name: sample2, username: test_user, permission: '0755' }
-         - name: checking the file's existance after creation
-     shell: "ls -l /tmp/sample*"
-     register: var_output_1
-   - name: here print the output
-     debug:
-     var: var_output_1.stdout_lines
+  - name: copy file
+    copy: src=/etc/ansible/hosts dest=/etc/ansible/hosts
+    owner=root group=root mode=0644
+  - name: debug
+    debug: msg="This is a debug message"
+  - name: shell
+    shell: /bin/echo "Hello, world!"
+  - name: template
+    template: src=/etc/ansible/templates/hosts.j2 dest=/etc/ansible/hosts
+    owner=root group=root mode=0644
+  - name: apt
+    apt: name={{item}} state=present
+  with_items:
+  - ntp
+  - git
+  - cli
+  - name: lineinfile
+    lineinfile: dest=/etc/ansible/hosts regexp='^(127.0.0.1)' line='127.0.0.1 localhost'
+  - name: file
+    file: dest=/etc/ansible/hosts state=touch
+  - name: archive
+    archive: path=/etc/ansible/src dest=/etc/ansible/dest format=gz
+  - name: git
+    git: repo=https://github.com/ansible/ansible.git dest=/etc/ansible/checkouts/ansible version=release2.1.1.0
+  - name: cli
+    command: ansible --version
