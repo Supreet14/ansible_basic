@@ -30,8 +30,8 @@
       
     - name: Lineinfile
       lineinfile:
-        line: Hello
+        line: Hello world
         dest: /home/ec2-user/hlo.txt
-        state: absent
+        state: present
         create: yes
      
