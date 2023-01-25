@@ -29,6 +29,7 @@
       command: git --version
     - name: cli
       command: docker --version
+      
     - name: Lineinfile
       des: /home/ec2-user/test.txt
       state: present
