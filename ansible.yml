@@ -10,7 +10,7 @@
       copy: 
         src: /home/ec2-user/test.txt 
         dest: /home/testserver/test1.txt
-        remote: yes
+        remote_src: yes
     - name: debug
       debug: msg="This is a debug message"
     - name: shell
