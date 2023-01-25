@@ -20,7 +20,6 @@
       with_items:
       - ntp
       - git
-      - cli
     - name: lineinfile
       lineinfile: dest=/home/ec2-user/test.txt line='127.0.0.1 localhost'
       state: present
