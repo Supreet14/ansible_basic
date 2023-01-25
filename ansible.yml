@@ -20,3 +20,7 @@
       with_items:
       - ntp
       - git
+    - name: Docker
+      service: 
+      name: docker
+      state: started
