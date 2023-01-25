@@ -3,7 +3,8 @@
   become: true
   tasks:
     - name: file
-      file: dest=/home/ec2-user/test.txt state=touch
+      file: dest=- name: file
+      file: dest=/home/ec2-user/test.txt state=touch state=touch
     - name: file
       file: dest=/home/testserver/test1.txt state=touch
     - name: copy file
@@ -15,8 +16,6 @@
       debug: msg="This is a debug message"
     - name: shell
       shell: /bin/echo "Hello, world!"
-    - name: template
-      template: src=/etc/ansible/templates/hosts.j2 dest=/etc/ansible/hosts
     - name: yum
       yum: name={{item}} state=present
       with_items:
@@ -24,7 +23,8 @@
       - git
       - cli
     - name: lineinfile
-      lineinfile: dest=/etc/ansible/hosts regexp='^(127.0.0.1)' line='127.0.0.1 localhost'
+      lineinfile: dest=/home/ec2-user/test.txt 
+      state: present
     - name: archive
       archive: path=/etc/ansible/src dest=/etc/ansible/dest format=gz
     - name: git
