@@ -26,4 +26,7 @@
         name: docker
         state: started
     - name: git
+      debug:
       command: git --version
+    - name: cli
+      command: docker --version
