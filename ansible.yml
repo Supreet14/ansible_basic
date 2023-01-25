@@ -22,18 +22,13 @@
       - git
       
     - name: Docker
-      service: 
-        name: docker
-        state: stopped
+      docker:
+        image: supreet14/nodejsapp:3
+        state: started
     - name: git
       git:
         repo: 'https://github.com/Supreet14/github_basics.git'
         dest: /home/ec2-user/test
-    - name: Create a new branch
-      git:
-        repo: 'https://github.com/Supreet14/github_basics.git'
-        dest: /home/ec2-user/test
-        branch: new_branch
     - name: cli
       command: docker --version
       
@@ -43,3 +38,4 @@
         dest: /home/ec2-user/test.txt
         state: present
         create: yes
+     
