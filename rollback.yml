@@ -3,6 +3,6 @@
   become: true
   tasks:
     - name: Check current version
-      command: cat /etc/ansible/version
+      command: sudo su - testserver
       register: version_check
 
