@@ -2,6 +2,8 @@
 - hosts: all
   become: true
   tasks:
+    - name: Include
+      include: ansible.yml
     - name: file
       command: "{{ ansible_env.HOME }}"
       register: output
