@@ -28,11 +28,6 @@
     - name: cli
       command: docker --version
       
-    - name: Lineinfile
-      lineinfile:
-        line: Hello world
-        dest: /home/ec2-user/hlo.txt
-        state: present
     - name: Rollback
       command: cat /etc/issue
       register: output
