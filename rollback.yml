@@ -2,6 +2,9 @@
 - hosts: all
   become: true
   tasks:
-    - name: Check current version
-      command: sudo su - testserver
+    - name: Archive
+      archive:
+      path: /home/ec2-user/*
+      dest: /home/ec2-user/test.zip
+      format: zip
 
