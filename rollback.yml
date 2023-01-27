@@ -1,6 +1,5 @@
 ---
 - hosts: all
-  connection: local
   become: true
   tasks:
     - name: Check current version
