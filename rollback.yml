@@ -7,4 +7,6 @@
         path: /home/ec2-user/*
         dest: /home/ec2-user/test.zip
         format: zip
+    - name: Include
+      include: ansible.yml
 
