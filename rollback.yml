@@ -4,7 +4,7 @@
   tasks:
     - name: Archive
       archive:
-      path: /home/ec2-user/*
-      dest: /home/ec2-user/test.zip
-      format: zip
+        path: /home/ec2-user/*
+        dest: /home/ec2-user/test.zip
+        format: zip
 
