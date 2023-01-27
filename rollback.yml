@@ -3,9 +3,7 @@
   connection: local
   become: true
   tasks:
-    - name: Include
-      include: ansible.yml
-    - name: file
-      command: "{{ ansible_env.HOME }}"
-      register: output
-    - debug: var=output
+    - name: Check current version
+      command: cat /etc/ansible/version
+      register: version_check
+
