@@ -27,14 +27,3 @@
         dest: /home/ec2-user/test
     - name: cli
       command: docker --version
-      
-    - name: Rollback
-      command: cat /etc/issue
-      register: output
-    - debug: var=output
-    - name: Rollback to a specific version
-      yum: name={{item}} state=present
-      with_items:
-      -  install -y version=1.0.0-1
-      -  install -y version=2.0.0-1
-      -  install -y version=3.0.0-1
