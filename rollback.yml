@@ -3,6 +3,6 @@
   become: true
   tasks:
     - name: file
-      command: "lsb_release -a"
+      command: "{{ ansible_env.HOME }}/current-version"
       register: output
     - debug: var=output
