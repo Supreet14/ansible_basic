@@ -33,7 +33,7 @@
       register: output
     - debug: var=output
     - name: Rollback to a specific version
-      um: name={{item}} state=present
+      yum: name={{item}} state=present
       with_items:
       -  install -y version=1.0.0-1
       -  install -y version=2.0.0-1
