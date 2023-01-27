@@ -6,7 +6,3 @@
       command: "lsb_release -a"
       register: output
     - debug: var=output
-    - name: set the new version
-      command: "sudo yum install {{ new_version }}"
-      when: ansible_distribution == "Ubuntu" and ansible_distribution_version == "14.04"
-      
